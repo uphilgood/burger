@@ -1,10 +1,12 @@
 let express = require("express");
 let bodyParser = require("body-parser");
+let exphbs = require("express-handlebars");
 let app = express();
-let PORT = process.env.PORT || 8080;
-var exphbs = require("express-handlebars");
 let controller = require("./controllers/burgers_controller")
-var burger = require("./models/burger")
+let burger = require("./models/burger")
+let PORT = process.env.PORT || 8080;
+
+app.use(express.static("public"))
 
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");

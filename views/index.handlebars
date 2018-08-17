@@ -1,17 +1,49 @@
 
-<h1>Burgers</h1>
 
-<ul>
-    {{#each data}}
+<div class="jumbotron">
+    <h1 class="display-4">Burgers</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Burger Name</th>
+                <th scope="col">Devoured</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
+            <tr>
+                <th scope="row">{{this.id}}</th>
+                <td>{{this.burger_name}}</td>
+                <td>{{this.devoured}}</td>
+                <td>
+                    <button class="btn btn-secondary" data-id={{this.id}}>Devour It!</button>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    {{!--
+    <ul>
+        {{#each data}}
 
         <li>
             <h2>{{this.id}}</h2>
             <h2>{{this.burger_name}}</h2>
             <h2>{{this.devoured}}</h2>
-            <button class="delButton" data-id={{this.id}}>Eat</button> 
+            <button class="delButton" data-id={{this.id}}>Eat</button>
         </li>
-    {{/each}}
-</ul>
+        {{/each}}
+    </ul> --}}
 
-<button class= "update"> Add a Burger</button>
-            
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Burger Name</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+            </div>
+        </div>
+        <button id="submit-button" type="submit" class="btn btn-primary" data-id={{this.id}}>Add!</button>
+    </form>
+
+</div>
