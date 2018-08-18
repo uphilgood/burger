@@ -1,8 +1,43 @@
 
 
-<div class="jumbotron">
-    <h1 class="display-4">Burgers</h1>
-    <table class="table">
+<h1 class="display-4" style="text-align: center">Eat Da Burgers</h1>
+
+<div class="jumbotron" >
+    
+<br/>
+<div class="row">
+    <div class="col-md-9" style="float:left">
+        <h1 style="color: white">EAT ME!</h1>
+    <div class="card" style="width: 30rem;">
+  <ul class="list-group list-group-flush">
+      {{#each data}}
+      {{#unless this.devoured}}
+    <li class="list-group-item">{{this.burger_name}}  <button style="float: right" class="btn btn-secondary" data-id={{this.id}}>Devour It!</button></li>
+  </ul>
+  {{/unless}}
+  {{/each}}
+  </div>
+</div> 
+
+<br/>
+
+    <div class="col-md-3" style="float:right">
+         <h1 style="color: white">EATEN!</h1>
+    <div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+      {{#each data}}
+      {{#if this.devoured}}
+    <li class="list-group-item">{{this.burger_name}}</li>
+    
+  </ul>
+  {{/if}}
+  {{/each}}
+  </div>
+</div>
+</div>
+
+
+    {{!-- <table class="table">
         <thead>
             <tr>
                 <th scope="col">ID</th>
@@ -22,28 +57,22 @@
             </tr>
             {{/each}}
         </tbody>
-    </table>
-    {{!--
-    <ul>
-        {{#each data}}
+    </table> --}}
 
-        <li>
-            <h2>{{this.id}}</h2>
-            <h2>{{this.burger_name}}</h2>
-            <h2>{{this.devoured}}</h2>
-            <button class="delButton" data-id={{this.id}}>Eat</button>
-        </li>
-        {{/each}}
-    </ul> --}}
+   
 
-    <form>
+</div>
+<br/>
+<div class="container" style="text-align: center">
+ <form>
         <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-12">
+                <h2>
                 <label for="inputEmail4">Burger Name</label>
+                </h2>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
             </div>
         </div>
         <button id="submit-button" type="submit" class="btn btn-primary" data-id={{this.id}}>Add!</button>
     </form>
-
-</div>
+    </div>
